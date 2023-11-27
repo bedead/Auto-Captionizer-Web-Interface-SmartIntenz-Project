@@ -67,10 +67,11 @@
             <!-- Content goes here -->
 
 
-            <div class="login-container m-auto" style="height: 60vh;">
-                <div class="card">
+            <div class="login-container m-auto" style="height: 60vh; ">
+                <div class="card"
+                    style="min-height: 250px;">
                     <div class="card-body">
-                        <form action="{{ url_for('login') }}" method="POST">
+                        <form class="m-auto" action="{{ url_for('login') }}" method="POST">
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input type="text" class="form-control" id="username" name="username"
@@ -91,7 +92,10 @@
             <footer class="text-muted mt-5 bg-light" style="height: 200px;">
                 <div class="container"
                     style="display: flex; justify-content: space-between; align-items: center; height: 100%;">
-                    <p>© 2023 Auto Captionizer</p>
+                    <div>
+                        <p>© 2023 Auto Captionizer</p>
+                        <h3>Created with ❤️</h3>
+                    </div>
                     <div>
                         <p><a class="" href="{{url_for('about')}}">About Us</a></p>
                         <p><a class="" href="#">Contact Us</a></p>

@@ -27,7 +27,7 @@
         }
 
         .developers-section {
-            height: 50vh;
+            height: 30vh;
         }
 
         .card {
@@ -69,18 +69,19 @@
         <div class="faded-box">
             <!-- Content goes here -->
 
-            <section class="text-center about-section">
-                <div class="container">
+            <section class="text-center about-section"
+                style="height: 80vh; background-image: url('https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover;">
+                <div class="container text-white">
                     <h1>About Us</h1>
                     <p class="lead">Translating Visions into Words: Your Trusted Partner in Image Captioning.</p>
                 </div>
             </section>
 
             <!-- Developers Section -->
-            <section class="text-center developers-section">
+            <section class="text-center developers-section mt-5">
                 <div class="container">
                     <h2>Our Developers</h2>
-                    <div class="row">
+                    <div class="row mt-5">
                         <div class="col-sm-3">
                             <div class="card">
                                 <div class="card-body bg-light">
@@ -116,7 +117,10 @@
             <footer class="text-muted mt-5 bg-light" style="height: 200px;">
                 <div class="container"
                     style="display: flex; justify-content: space-between; align-items: center; height: 100%;">
-                    <p>© 2023 Auto Captionizer</p>
+                    <div>
+                        <p>© 2023 Auto Captionizer</p>
+                        <h3>Created with ❤️</h3>
+                    </div>
                     <div>
                         <p><a class="" href="{{url_for('about')}}">About Us</a></p>
                         <p><a class="" href="#">Contact Us</a></p>
