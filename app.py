@@ -22,6 +22,8 @@ def about():
 
 @app.route("/get_captions", methods=["GET", "POST"])
 def get_captions():
+    global logged
+
     if logged:
         if request.method == "POST":
             # Handle the uploaded image and generate caption
@@ -38,28 +40,43 @@ def get_captions():
 
             # Correct variable name used for generate_caption
             caption = generate_caption(file_path)
-            return render_template("get_captions.html", caption=caption)
+            print(caption)
+            return render_template("get_captions.html", caption=caption, logged=logged)
+
         return render_template("get_captions.html", logged=logged)
+
     else:
         return redirect(url_for("home"))
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        username = request.form['username']
-        
+    global logged, admins
+    if logged:
+        return redirect(url_for("get_captions"))
+    elif request.method == "POST":
+        username = request.form.get("username", "")
+        password = request.form.get("password", "")
+
         print(username)
+        print(password)
 
-        return render_template("get_captions.html")
+        for each in admins:
+            if (each["username"] == username) and (each["password"] == password):
+                logged = True
+                print("here")
 
-    return render_template("login.html")
+        return redirect(url_for("get_captions"))
+    else:
+        return render_template("login.html")
 
 
-@app.route("/signout", methods=["GET"])
+@app.route("/signout", methods=["GET", "POST"])
 def signout():
+    global logged
+
     logged = False
-    return render_template("home.html")
+    return redirect(url_for("home"))
 
 
 if __name__ == "_main_":
